@@ -12,4 +12,17 @@ public class GameResult {
         this.correctValue = correctValue;
         this.numGuesses = numGuesses;
     }
+
+    public String getAnswerValueString() {
+        return "The answer was " + correctValue + ".";
+    }
+
+    public String getNumGuessesString() {
+        if(numGuesses == 1){
+            return (humanWasPlaying ? "You" : "I") + " guessed it on the first try!";
+        }
+        else {
+            return"It took " + (humanWasPlaying ? "you" : "me") + " " + numGuesses + " guesses.";
+        }
+    }
 }
