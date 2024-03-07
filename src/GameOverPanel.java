@@ -72,13 +72,8 @@ public class GameOverPanel extends JPanel {
     public void setGameResults(GameResult result){
         this.gameResult = result;
 
-        answerTxt.setText("The answer was " + result.correctValue + ".");
-        if(result.numGuesses == 1){
-            numGuessesTxt.setText((result.humanWasPlaying ? "You" : "I") + " guessed it on the first try!");
-        }
-        else {
-            numGuessesTxt.setText("It took " + (result.humanWasPlaying ? "you" : "me") + " " + result.numGuesses + " guesses.");
-        }
+        answerTxt.setText(gameResult.getAnswerValueString());
+        numGuessesTxt.setText(gameResult.getNumGuessesString());
 
         if(result.humanWasPlaying){
         writeToCSV(result.numGuesses);
