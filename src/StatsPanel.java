@@ -94,8 +94,7 @@ public class StatsPanel extends JPanel {
     private void updateResultsPanel(){
         clearResults();
 
-        GameStats stats = new StatsFile();
-        HashMap<Integer, Integer> resultPairs = stats.getResultPairs(BIN_EDGES);
+        HashMap<Integer, Integer> resultPairs = GameStatsAggregate.getResultPairs(BIN_EDGES, new StatsFile());
         for(int i = 0; i<BIN_EDGES.length-1; i++){
            resultsLabels.get(i).setText(Integer.toString(resultPairs.get(i)));
         }
