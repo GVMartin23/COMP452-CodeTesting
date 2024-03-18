@@ -26,11 +26,20 @@ class ComputerGuessesPanelTests {
         assertEquals(45, ComputerGuess.getHigherGuess(45, 40));
     }
     @Test
+    void getsNextGuessCorrectlySpreadByOne(){
+        assertEquals(50, ComputerGuess.makeGuess(50, 50));
+    }
+    @Test
     void getsNextGuessCorrectlySpreadByTwo(){
         assertEquals(50, ComputerGuess.makeGuess(51, 49));
     }
     @Test
-    void getsNextGuessCorrectlySpreadByThree(){
+    void getsNextGuessCorrectlySpreadByThreeTopHeavy(){
         assertTrue(ComputerGuess.makeGuess(49, 52) > 49 && ComputerGuess.makeGuess(49, 52) <52);
+    }
+    @Test
+    void getsNextGuessCorrectlySpreadByThreeBottomHeavy(){
+        assertTrue(ComputerGuess.makeGuess(48, 51) > 48 && ComputerGuess.makeGuess(48, 51) <51);
+
     }
 }
