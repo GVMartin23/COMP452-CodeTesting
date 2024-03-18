@@ -99,26 +99,5 @@ public class StatsPanel extends JPanel {
         for(int i = 0; i<BIN_EDGES.length-1; i++){
            resultsLabels.get(i).setText(Integer.toString(resultPairs.get(i)));
         }
-//        for(int binIndex=0; binIndex<BIN_EDGES.length; binIndex++){
-//            final int lowerBound = BIN_EDGES[binIndex];
-//            int numGames = 0;
-//
-//            if(binIndex == BIN_EDGES.length-1){
-//                // last bin
-//                // Sum all the results from lowerBound on up
-//                for(int numGuesses=lowerBound; numGuesses<stats.maxNumGuesses(); numGuesses++){
-//                    numGames += stats.numGames(numGuesses);
-//                }
-//            }
-//            else{
-//                int upperBound = BIN_EDGES[binIndex+1];
-//                for(int numGuesses=lowerBound; numGuesses <= upperBound; numGuesses++) {
-//                    numGames += stats.numGames(numGuesses);
-//                }
-//            }
-//
-//            JLabel resultLabel = resultsLabels.get(binIndex);
-//            resultLabel.setText(Integer.toString(numGames));
-//        }
     }
 }
