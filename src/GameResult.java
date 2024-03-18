@@ -33,9 +33,7 @@ public class GameResult {
     }
 
     public void saveResults(){
-        if(humanWasPlaying){
-            writeToCSV(numGuesses);
-        }
+        writeToCSV(numGuesses);
     }
 
     public void writeToCSV(int numGuesses) {

@@ -64,6 +64,7 @@ public class GameOverPanel extends JPanel {
      * Sets the game results, updates the UI, and saves results to the log file (if human was playing)
      */
     // TODO: refactor this method
+    // Refactored
     public void setGameResults(GameResult result){
         this.gameResult = result;
 
