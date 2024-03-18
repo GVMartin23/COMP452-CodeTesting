@@ -41,8 +41,10 @@ public class ComputerGuessesPanel extends JPanel {
 
         JButton lowerBtn = new JButton("Lower");
         lowerBtn.addActionListener(e -> {
-            upperBound = Math.min(upperBound, lastGuess);
-            guessMessage.setText("I guess " + makeGuess() + ".");
+            upperBound = ComputerGuess.getLowerGuess(upperBound, lastGuess);
+            lastGuess = ComputerGuess.makeGuess(upperBound, lowerBound);
+            numGuesses+=1;
+            guessMessage.setText("I guess " + lastGuess + ".");
         });
         this.add(lowerBtn);
         lowerBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -65,8 +67,10 @@ public class ComputerGuessesPanel extends JPanel {
 
         JButton higherBtn = new JButton("Higher");
         higherBtn.addActionListener(e -> {
-            lowerBound = Math.max(lowerBound, lastGuess + 1);
-            guessMessage.setText("I guess " + makeGuess() + ".");
+            lowerBound=ComputerGuess.getHigherGuess(lowerBound, lastGuess);
+            lastGuess = ComputerGuess.makeGuess(upperBound, lowerBound);
+            numGuesses+=1;
+            guessMessage.setText("I guess " + lastGuess + ".");
         });
         this.add(higherBtn);
         higherBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -77,13 +81,9 @@ public class ComputerGuessesPanel extends JPanel {
                 numGuesses =-1;
                 upperBound = 1000;
                 lowerBound = 1;
-                guessMessage.setText("I guess " + makeGuess() + ".");
+                lastGuess = ComputerGuess.makeGuess(upperBound, lowerBound);
+                guessMessage.setText("I guess " + lastGuess + ".");
             }
         });
     }
-public int makeGuess(){
-    lastGuess = (lowerBound + upperBound + 1) / 2;
-    numGuesses += 1;
-    return lastGuess;
-}
 }
